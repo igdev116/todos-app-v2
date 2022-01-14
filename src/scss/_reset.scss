@@ -1,0 +1,32 @@
+*,
+::before,
+::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  line-height: 1;
+}
+
+button {
+  outline: none;
+  border: none;
+
+  cursor: pointer;
+}
+
+input {
+  outline: none;
+  border: none;
+}
+
+img {
+  max-width: 100%;
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-drag: none;
+  -o-user-drag: none;
+  user-drag: none;
+}
