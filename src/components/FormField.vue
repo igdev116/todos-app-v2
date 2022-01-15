@@ -1,18 +1,55 @@
 <template>
   <div class="form-field">
     <h1 class="title">~ Today I need to ~</h1>
-    <form @submit.prevent="" class="form-wrapper">
+    <form @submit.prevent="handleAddTodo(contentRef)" class="form-wrapper">
       <div class="form-input">
-        <input placeholder="Add new todo..." />
+        <input
+          ref="inputRef"
+          placeholder="Add new todo..."
+          v-model.trim="contentRef"
+          autofocus
+        />
       </div>
       <button type="submit" class="submit-btn"><span>Submit</span></button>
     </form>
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { ref } from 'vue';
+import { useStore } from 'vuex';
+
+// nanoid
+import { nanoid } from 'nanoid';
+
+// enums
+import { TodosMutationTypes } from '@/models/todos';
+
 export default {
   name: 'FormInput',
+  setup() {
+    const store = useStore();
+
+    const contentRef = ref<string>('');
+    const inputRef = ref<HTMLElement>(null!);
+
+    const handleAddTodo = (content: string) => {
+      inputRef.value.focus();
+
+      if (!content) return;
+
+      store.commit(TodosMutationTypes.ADD_TODO, {
+        id: nanoid(),
+        content: content,
+        completed: false,
+      });
+      store.commit(TodosMutationTypes.SET_STATUS, 'all');
+
+      contentRef.value = '';
+    };
+
+    return { contentRef, inputRef, handleAddTodo };
+  },
 };
 </script>
 

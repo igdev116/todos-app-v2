@@ -32,5 +32,10 @@ body {
 
   background-image: $body-bgc;
   background-repeat: no-repeat;
+
+  @include mobile {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }
 </style>
