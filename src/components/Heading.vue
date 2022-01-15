@@ -7,7 +7,7 @@
   </header>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   name: 'Heading',
 };
@@ -32,12 +32,14 @@ export default {
 
   .title {
     transform: rotate(3deg);
-    font-size: 19px;
-    padding: 0.65em 1.1em 0.35em;
+    font-size: 21px;
+    padding: 0.25em 0.8em 0.15em;
     border-radius: 20% 5% 20% 5%/5% 20% 25% 20%;
 
     color: $text-light-color;
     background: $primary-color;
+
+    user-select: none;
   }
 }
 </style>

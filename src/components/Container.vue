@@ -2,19 +2,19 @@
   <main class="container">
     <heading />
     <form-field />
-    <todo-list />
+    <todos />
     <options />
   </main>
 </template>
 
-<script>
+<script lang="ts">
 import FormField from './FormField.vue';
 import Heading from './Heading.vue';
 import Options from './Options.vue';
-import TodoList from './TodoList.vue';
+import Todos from './Todos.vue';
 
 export default {
-  components: { Heading, FormField, Options, TodoList },
+  components: { Heading, FormField, Options, Todos },
   name: 'Container',
 };
 </script>
@@ -32,8 +32,10 @@ export default {
 
   background: $container-bgc;
 
-  @include tablet {
+  @include mobile {
     width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 </style>

@@ -7,12 +7,18 @@
 }
 
 html {
-  line-height: 1;
+  line-height: 1.5;
+}
+
+body {
+  -webkit-tap-highlight-color: transparent;
 }
 
 button {
   outline: none;
   border: none;
+
+  background-color: transparent;
 
   cursor: pointer;
 }
